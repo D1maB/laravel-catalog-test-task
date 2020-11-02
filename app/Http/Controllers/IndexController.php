@@ -15,13 +15,14 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $products = Product::limit(10)->get();
+        $products = Product::active()->limit(10)->get();
 
         return view('index', ['products' => $products]);
     }
 
-    public function product(Product $product)
+    public function product(Product $product_single)
     {
-        return view('product/product', ['product' => $product]);
+        // @todo check if is active
+        return view('product/product', ['product' => $product_single]);
     }
 }

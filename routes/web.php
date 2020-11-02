@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/order/{product}', 'OrderController@index')->name('order.checkout');
-Route::get('/product/{product}', 'IndexController@product')->name('product.single');
+Route::get('/product/{product_single}', 'IndexController@product')->name('product.single');
 Route::post('/order', 'OrderController@order')->name('order.send');
 Route::get('/verify_order/{hash}', 'OrderController@verify')->name('order.verify');
 
