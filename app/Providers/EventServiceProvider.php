@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Events\OrderVerifiedEvent;
+use App\Listeners\MarkProductAsUnavailableListener;
+use App\Listeners\SendOrderEmailVerificationListener;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+
+use App\Events\OrderCreatedEvent;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -15,8 +20,11 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        OrderCreatedEvent::class => [
+            SendOrderEmailVerificationListener::class
+        ],
+        OrderVerifiedEvent::class => [
+            MarkProductAsUnavailableListener::class,
         ],
     ];
 

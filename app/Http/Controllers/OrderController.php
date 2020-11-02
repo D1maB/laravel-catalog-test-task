@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\OrderCreatedEvent;
+use App\Events\OrderVerifiedEvent;
 use App\Http\Requests\OrderRequest;
 use App\Order;
 use App\Product;
@@ -26,7 +28,7 @@ class OrderController extends Controller
     {
         // check if product is available form order
 
-        Order::create(
+        $order = Order::create(
             request()->only(
                 'name',
                 'email',
@@ -35,8 +37,17 @@ class OrderController extends Controller
             )
         );
 
-        // send order verification email
+        event(new OrderCreatedEvent($order));
 
         return redirect()->route('index')->with('success','Order sent');
+    }
+
+    public function verify($hash){
+        $order = Order::where('verification_hash', $hash)->first();
+
+        if($order){
+            event(new OrderVerifiedEvent($order));
+            return redirect()->route('index')->with('success','Your order has been successfully verified.');
+        }
     }
 }
