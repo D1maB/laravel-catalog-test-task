@@ -13,7 +13,7 @@
 
             <p>{{ $product->description }}</p>
 
-            <a href="{{ route('order.checkout', ['product' => $product->id]) }}">
+            <a href="{{ route('order.checkout', ['s_product' => $product->id]) }}">
                 <div class="btn btn-success">Order</div>
             </a>
         </div>

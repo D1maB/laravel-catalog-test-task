@@ -32,7 +32,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        Route::bind('product_single', function ($id) {
+        Route::bind('s_product', function ($id) {
             return Product::where('id', $id)->active()->firstOrFail();
         });
 

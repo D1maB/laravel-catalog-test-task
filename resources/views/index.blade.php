@@ -15,7 +15,7 @@
                     @foreach($items as $product)
                         <div class="col-md-4">
                             <div class="product-item p-2">
-                                <a href="{{route('product.single', ['product' => $product->id])}}">
+                                <a href="{{route('product.single', ['s_product' => $product->id])}}">
                                     <h3>{{$product->title}}</h3>
                                 </a>
                                 @if(isset($product->image))
@@ -24,7 +24,7 @@
                                     </div>
                                 @endif
 
-                                <a href="{{ route('order.checkout', ['product' => $product->id]) }}">
+                                <a href="{{ route('order.checkout', ['s_product' => $product->id]) }}">
                                     <div class="btn btn-success">Order</div>
                                 </a>
                             </div>
