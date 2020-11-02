@@ -17,6 +17,9 @@
 
             <form action="{{ route('order.send') }}" method="post">
                 @csrf
+
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" value="{{ old('name') }}">

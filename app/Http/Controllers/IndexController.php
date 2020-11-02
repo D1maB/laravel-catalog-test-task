@@ -19,4 +19,9 @@ class IndexController extends Controller
 
         return view('index', ['products' => $products]);
     }
+
+    public function product(Product $product)
+    {
+        return view('product/product', ['product' => $product]);
+    }
 }
