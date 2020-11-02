@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@index')->name('index');
+Route::get('/order', 'OrderController@index')->name('order.checkout');
+Route::post('/order', 'OrderController@order')->name('order.send');
+//Route::post('/order/{$product_id}', 'OrderController@order')->name('order.send');
 
 Auth::routes(['register' => false]);
 
