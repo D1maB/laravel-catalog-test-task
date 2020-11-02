@@ -14,9 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+#Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+
+// dashboard
+Route::group(['middleware' => 'auth'], function () {
+    Route::prefix('dashboard')->name('dashboard.')->group(function () {
+
+        Route::get('/', 'Dashboard\HomeController@index')->name('index');
+
+        // Products
+        Route::resource('product', 'Dashboard\ProductController');
+
+    });
+});
