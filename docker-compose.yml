@@ -35,5 +35,13 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
 
+  npm:
+    image: node:10-alpine
+    container_name: app-npm
+    entrypoint: ['npm']
+    working_dir: /app
+    volumes:
+      - ./:/app
+
 volumes:
   dbdata:
