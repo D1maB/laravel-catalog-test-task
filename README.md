@@ -1,6 +1,6 @@
 # How to install
 
-docker-compose up -d build\
+docker-compose up -d --build\
 docker-compose run --rm npm i\
 docker-compose run --rm npm run dev
 
