@@ -42,7 +42,7 @@
 
 
                     <li class="nav-item">
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('dashboard.order.index') }}">
                             <span data-feather="file"></span>
                             Orders
                         </a>

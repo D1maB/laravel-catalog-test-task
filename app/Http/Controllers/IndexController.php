@@ -15,7 +15,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $products = Product::active()->limit(10)->get();
+        $products = Product::active()->paginate(9);
 
         return view('index', ['products' => $products]);
     }

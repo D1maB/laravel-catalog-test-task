@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Events\OrderVerifiedEvent;
 use App\Listeners\MarkProductAsUnavailableListener;
+use App\Listeners\OrderConfirmedListener;
 use App\Listeners\SendOrderEmailVerificationListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -25,6 +26,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         OrderVerifiedEvent::class => [
             MarkProductAsUnavailableListener::class,
+            OrderConfirmedListener::class
         ],
     ];
 

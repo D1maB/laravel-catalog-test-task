@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         // Products
         Route::resource('product', 'Dashboard\ProductController');
+        Route::resource('order', 'Dashboard\OrderController');
 
     });
 });

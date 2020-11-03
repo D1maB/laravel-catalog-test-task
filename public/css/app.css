@@ -10903,3 +10903,9 @@ a.text-dark:focus {
   }
 }
 
+.product-item img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
