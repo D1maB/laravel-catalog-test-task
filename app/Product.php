@@ -12,4 +12,8 @@ class Product extends Model
     {
         return $query->where('is_active', true);
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

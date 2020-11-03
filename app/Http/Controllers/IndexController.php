@@ -22,7 +22,9 @@ class IndexController extends Controller
 
     public function product(Product $product)
     {
-        // @todo check if is active
-        return view('product/product', ['product' => $product]);
+        return view('product/product', [
+            'product' => $product,
+            'comments' => $product->comments()->active()->get()
+        ]);
     }
 }

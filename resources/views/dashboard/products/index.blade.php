@@ -36,6 +36,7 @@
                             {!! $item->is_active ? '<i class="fas fa-check text-success">' : '<i class="fas fa-times text-danger"></i>' !!}
                         </td>
                         <td>
+                            <a class="btn btn-sm btn-success" href="{{ route('dashboard.product.comments.index', $item->id) }}" title="product comments"><i class="fas fa-comments"></i></a>
                             <a class="btn btn-sm btn-primary" href="{{ route('dashboard.product.edit', $item->id) }}" title="edit"><i class="fas fa-edit"></i></a>
                             <form action="{{ route('dashboard.product.destroy' , $item->id)}}" method="POST" class="d-inline-block" onsubmit="return confirm('Delete {{ $item->title }} ?')">
                                 {!! method_field('DELETE') !!}

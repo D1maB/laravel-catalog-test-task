@@ -19,11 +19,10 @@ Route::get('/product/{s_product}', 'IndexController@product')->name('product.sin
 Route::post('/order', 'OrderController@order')->name('order.send');
 Route::get('/verify_order/{hash}', 'OrderController@verify')->name('order.verify');
 
+Route::post('/comment/{s_product}', 'CommentController@create')->name('comment.create');
+
 
 Auth::routes(['register' => false]);
-
-#Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
 
 // dashboard
 Route::group(['middleware' => 'auth'], function () {
@@ -31,9 +30,10 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('/', 'Dashboard\HomeController@index')->name('index');
 
-        // Products
         Route::resource('product', 'Dashboard\ProductController');
         Route::resource('order', 'Dashboard\OrderController');
+        Route::resource('product.comments', 'Dashboard\CommentController');
+        Route::post('product/comments/{comment}/verify', 'Dashboard\CommentController@verify')->name('product.comments.verify');
 
     });
 });

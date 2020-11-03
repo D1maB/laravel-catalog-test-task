@@ -49,15 +49,6 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="">
-                            <span data-feather="file"></span>
-                            Comments
-                        </a>
-                    </li>
-
-
-
-                    <li class="nav-item">
                         <a class="nav-link text-danger" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <span data-feather="layers"></span>
                             Logout

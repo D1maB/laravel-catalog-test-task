@@ -15,6 +15,9 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+            $table->text('body');
+            $table->boolean('is_verified')->default(0);
+            $table->bigInteger('product_id');
             $table->timestamps();
         });
     }

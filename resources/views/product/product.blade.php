@@ -16,6 +16,9 @@
             <a href="{{ route('order.checkout', ['s_product' => $product->id]) }}">
                 <div class="btn btn-success">Order</div>
             </a>
+            <hr>
+            @include('comment-form')
+            @include('comments-list')
         </div>
     </div>
 
