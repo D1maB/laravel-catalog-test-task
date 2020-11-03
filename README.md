@@ -22,7 +22,7 @@ Main site \
 ---
 Dashboard \
 127.0.0.1:5000/dashboard\
-admin\
+admin@gmail.com\
 notsosecret
 ---
 Mail Server (order verification)\
