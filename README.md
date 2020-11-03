@@ -1,6 +1,7 @@
 # How to install
 
-rename .env.example to .env
+rename .env.example to .env\
+
 docker-compose up -d --build\
 docker-compose run --rm npm i\
 docker-compose run --rm npm run dev
