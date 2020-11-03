@@ -35,6 +35,14 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
 
+  mailcatcher:
+    container_name: app-mailcatcher
+    restart: on-failure:10
+    image: dockage/mailcatcher:0.7.1
+    ports:
+      - 82:1080
+      - 25:1025
+
   npm:
     image: node:10-alpine
     container_name: app-npm

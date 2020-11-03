@@ -15,7 +15,7 @@
         <table class="table -table-striped ">
             <thead>
             <tr>
-                <th scope="col">Body</th>
+                <th scope="col" width="80%">Body</th>
                 <th scope="col">Verified</th>
                 <th scope="col"></th>
             </tr>

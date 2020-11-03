@@ -39,7 +39,7 @@ class OrderController extends Controller
 
         event(new OrderCreatedEvent($order));
 
-        return redirect()->route('index')->with('success','Order sent');
+        return redirect()->route('index')->with('success','Order sent. Please check your email for more details.');
     }
 
     public function verify($hash){
